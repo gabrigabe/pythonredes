@@ -7,7 +7,6 @@ receptor = ("127.0.0.1", 3030)
 socketUDP.bind(receptor)
 buff_size = 10000
 sequence = 0
-           ## return np.frombuffer(message, dtype=np.uint16)
 
 
 
@@ -27,7 +26,7 @@ def rdt_rcv():
                     print("Pacote duplicado")
                     socketUDP.sendto(transmissor(b"ACK"),transmissor)
             else:
-                print("Pacotes corruptos")
+                print("Pacote corrupto")
                 socketUDP.sendto(transmissor(b"NAK"), transmissor)
 
         
