@@ -1,5 +1,5 @@
 import socket
-import numpy as np  
+import numpy as np
 
 socketUDP = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 transmissor = ("127.0.0.1", 2020)
@@ -24,10 +24,10 @@ def rdt_rcv():
                     return np.frombuffer(message, dtype=np.uint16)
                 else:
                     print("Pacote duplicado")
-                    socketUDP.sendto(transmissor(b"ACK"),transmissor)
+                    socketUDP.sendto(transmissor(b"ACK"),buff_size)
             else:
                 print("Pacote corrupto")
-                socketUDP.sendto(transmissor(b"NAK"), transmissor)
+                socketUDP.sendto(transmissor(b"NAK"), buff_size)
 
         
                 
