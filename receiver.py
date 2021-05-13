@@ -17,10 +17,10 @@ def rdt_rcv():
             print("Pacote recebido, checando se é corrupto...")
             if source.is_not_corrupt(source):
                 print("não é corrupto")
-                sequence, source = sequence.extract(message)
+                sequence, source = source.extract(message)
                 if sequence == sequence:
                     print("Numero de sequencia esperado, Reenviando pacotes..", sequence)
-                    sequence ^= +1
+                    sequence ^= sequence
                     return np.frombuffer(message, dtype=np.uint16)
                 else:
                     print("Pacote duplicado")
